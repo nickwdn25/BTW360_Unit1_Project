@@ -9,7 +9,6 @@
       --bg:#0b0b0c;
       --panel:#0f0f12;
       --crimson:#9b0f1a;
-      --muted:#9e9e9e;
       --accent:#4b0b0f;
       --glow:0 0 18px rgba(155,15,26,0.55);
       --monos: 'Courier New', Courier, monospace;
@@ -17,7 +16,7 @@
     html,body{height:100%;}
     body{
       margin:0;
-      font-family: var(--monos), system-ui;
+      font-family: var(--monos), monospace;
       background: url('grayscale-shot-st-stephen-s-cathedral-vienna-austria.jpg');
       background-repeat: repeat;
       background-color: var(--bg);
@@ -34,110 +33,81 @@
     .logo{
       font-weight:700; letter-spacing:2px; color:var(--crimson); text-shadow: var(--glow);
       font-size:20px;
-      font-family: 'UnifrakturCook', cursive; /* Gothic script font for logo/title */
+      font-family: var(--monos);
     }
-    nav a{ color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:6px; font-size:14px;}
-    nav a:hover{ color:#fff; background:rgba(155,15,26,0.06); border:1px solid rgba(155,15,26,0.1);}
-    nav a.active{ color:var(--crimson); text-shadow:0 0 6px rgba(155,15,26,0.35);}
 
     .container{max-width:980px; margin:36px auto; padding:24px; background:rgba(0,0,0,0.65); border-radius:8px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); position:relative; z-index:1}
 
     .panel{ background:rgba(0,0,0,0.4); padding:20px; border-radius:6px; border:1px solid rgba(255,255,255,0.08); }
 
-    h1{ font-family: 'UnifrakturCook', cursive; font-weight:700; color:var(--crimson); margin:0 0 6px 0; letter-spacing:1px;}
-    h2{ font-family: 'UnifrakturCook', cursive; color:#ddd; margin:6px 0 12px 0; font-weight:600}
+    h1, h2, p, a, div, section, img { font-family: 'Courier New', Courier, monospace; }
+
+    h1{ font-weight:700; color:var(--crimson); margin:0 0 12px 0; letter-spacing:1px;}
+    h2{ margin:6px 0 12px 0; }
     p{line-height:1.56; color:#ddd; margin:6px 0 12px 0}
-
-    .glitch{ position:relative; color:var(--crimson); font-weight:800; font-size:14px; }
-    .glitch::before, .glitch::after{ content:attr(data-text); position:absolute; left:0; top:0; }
-    .glitch::before{ color:rgba(155,15,26,0.7); transform:translate(2px,-2px); clip-path: inset(0 0 60% 0); opacity:0.8}
-    .glitch::after{ color:rgba(0,200,200,0.08); transform:translate(-2px,2px); clip-path: inset(60% 0 0 0); opacity:0.7}
-
-    .aside{ background:linear-gradient(180deg, rgba(155,15,26,0.03), transparent); padding:12px; border-left:2px solid rgba(155,15,26,0.08); margin-top:18px; color:var(--muted); font-size:14px}
-
-    footer{ text-align:center; margin:36px 0 12px 0; color:var(--muted); font-size:13px }
 
     a.btn{ display:inline-block; padding:8px 12px; border:1px solid rgba(255,255,255,0.06); background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.18)); text-decoration:none; border-radius:4px; color:#fff}
 
+    section.page{ display:none; }
+    section.page.active{ display:block; }
+
     @media (max-width:680px){ .container{ margin:12px; padding:18px } header{ flex-direction:column; align-items:flex-start } }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="logo">NICK WOODEN — <span style="font-family: var(--monos); font-weight:400; color:#cfcfcf; font-size:12px">social music log</span></div>
-    <div style="flex:1"></div>
-    <div class="nav-wrap">
-      <nav>
-        <a href="#early" data-target="early" class="nav-link">Early Influence</a>
-        <a href="#active" data-target="active" class="nav-link">Active Participation</a>
-        <a href="#community" data-target="community" class="nav-link">Community &amp; Connection</a>
-        <a href="#future" data-target="future" class="nav-link">Aspirations</a>
-      </nav>
-    </div>
+    <div class="logo">NICK WOODEN</div>
   </header>
-
-  <!-- Background audio placeholder -->
-  <audio id="bg-audio" src="your-audio.mp3" autoplay loop hidden></audio>
 
   <main class="container" id="app">
     <div class="panel">
-      <h1 id="page-title">Early Influence</h1>
-
-      <section id="early" class="page active">
-        <h2>Where the haunting started</h2>
-        <p>My first real encounter with social media as a music person was YouTube score videos...</p>
-        <!-- Image placeholder -->
+      <section id="past" class="page active" data-audio="past.mp3">
+        <h2>The Past</h2>
+        <p><!-- placeholder text --></p>
         <img src="placeholder1.png" alt="placeholder image" style="max-width:100%; margin:12px 0;">
       </section>
 
-      <section id="active" class="page">
-        <h2>Active Participation — posting my own pieces</h2>
-        <p>Posting my own compositions felt like putting my skeletons on display...</p>
-        <!-- Image placeholder -->
+      <section id="present" class="page" data-audio="present.mp3">
+        <h2>The Present</h2>
+        <p><!-- placeholder text --></p>
         <img src="placeholder2.png" alt="placeholder image" style="max-width:100%; margin:12px 0;">
       </section>
 
-      <section id="community" class="page">
-        <h2>Community &amp; Connection</h2>
-        <p>There is a strange economy of help among composers online...</p>
-        <!-- Image placeholder -->
+      <section id="future" class="page" data-audio="it's a new day.mp3">
+        <h2>The Future</h2>
+        <p><!-- placeholder text --></p>
         <img src="placeholder3.png" alt="placeholder image" style="max-width:100%; margin:12px 0;">
       </section>
 
-      <section id="future" class="page">
-        <h2>Professional / Aspirational — how I plan to use social media</h2>
-        <p>Now I think of social media as both a portfolio and a rehearsal room...</p>
-        <!-- Image placeholder -->
-        <img src="placeholder4.png" alt="placeholder image" style="max-width:100%; margin:12px 0;">
-      </section>
-
       <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
-        <a class="btn" href="#early" data-target="early">Jump to Early</a>
-        <a class="btn" href="#active" data-target="active">Jump to Active</a>
-        <a class="btn" href="#community" data-target="community">Jump to Community</a>
-        <a class="btn" href="#future" data-target="future">Jump to Aspirations</a>
+        <a class="btn" href="#past" data-target="past">Jump to Past</a>
+        <a class="btn" href="#present" data-target="present">Jump to Present</a>
+        <a class="btn" href="#future" data-target="future">Jump to Future</a>
       </div>
     </div>
-
-    <footer>
-      <div class="glitch" data-text="site forged in late nights &amp; tea">site forged in late nights &amp; tea</div>
-      <div style="margin-top:6px">Made with HTML, a little rot, and some crimson.</div>
-    </footer>
   </main>
+
+  <audio id="bg-audio" autoplay loop hidden></audio>
 
   <script>
     (function(){
+      const audio = document.getElementById('bg-audio');
+      const pageTitle = document.getElementById('page-title');
       function setActive(id){
         document.querySelectorAll('section.page').forEach(s=>s.classList.remove('active'));
         const el = document.getElementById(id);
         if(el) el.classList.add('active');
-        document.getElementById('page-title').textContent = document.querySelector('#'+id+' h2').textContent || 'Social Autobiography';
-        document.querySelectorAll('.nav-link').forEach(a=> a.classList.toggle('active', a.dataset.target===id));
+        if(pageTitle && el){
+          pageTitle.textContent = el.querySelector('h2').textContent;
+        }
+        if(el && el.dataset.audio){
+          audio.src = el.dataset.audio;
+          audio.play().catch(()=>{});
+        }
       }
       function init(){
-        let id = location.hash.replace('#','') || 'early';
-        if(!document.getElementById(id)) id='early';
+        let id = location.hash.replace('#','') || 'past';
+        if(!document.getElementById(id)) id='past';
         setActive(id);
       }
       document.querySelectorAll('[data-target]').forEach(a=>{
